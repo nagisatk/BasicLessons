@@ -1,10 +1,3 @@
-/*****************************************************
- >    File Name: chapter1.2-1.c
- >  Author Name: Nagisa
- > Mail Address: nagisa_tk@outlook.com
- > Created Time: 2017/2/16 20:57:29
- *****************************************************/
-
 #include<stdio.h>
 
 /* print Fahrenheit-Celsius table 

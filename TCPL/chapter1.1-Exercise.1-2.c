@@ -1,10 +1,3 @@
-/*****************************************************
- >    File Name: chapter1.1-Exercise.1-2.c
- >  Author Name: Nagisa
- > Mail Address: nagisa_tk@outlook.com
- > Created Time: 2017/2/16 20:40:00
- *****************************************************/
-
 #include<stdio.h>
 
 int main() {
