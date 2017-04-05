@@ -17,8 +17,10 @@ int getline(void) {
 }
 
 int main() {
-    int comment = 0;
-    int doubleslash = 0;
+    int comment = 0;        // 注释
+    int doubleslash = 0;    // 双斜线，注释
+    int quote2 = 0;         // 双引号，字符串
+    int quote1 = 0;         // 单引号，字符
     int len;
     while((len = getline()) > 0) {
         for(int i=0; i<len-1; i++) {
@@ -31,11 +33,19 @@ int main() {
                 if(line[i] == '\\') {
                     putchar(line[i]);
                     putchar(line[++i]);
+                } else if(line[i] == '"') {
+                    if(quote1 == 0)
+                        quote2 = 1 - quote2;
+                    putchar(line[i]);
+                } else if(line[i] == '\'') {
+                    if(quote2 == 0)
+                        quote1 = 1 - quote1;
+                    putchar(line[i]);
                 } else {
-                    if(line[i] == '/' && line[i+1] == '*') {
+                    if(!quote2 && line[i] == '/' && line[i+1] == '*') {
                         comment = 1;
                         i++;
-                    } else if(line[i] == '/' && line[i+1] == '/') {
+                    } else if(!quote2 && line[i] == '/' && line[i+1] == '/') {
                         comment = 1;
                         doubleslash = 1;
                         i++;
