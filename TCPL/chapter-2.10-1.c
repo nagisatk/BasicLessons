@@ -1,0 +1,14 @@
+#include<stdio.h>
+
+int bitcount(unsigned x) {
+    int b;
+    for(b = 0; x != 0; x >>= 1)
+        if(x & 01)
+            b ++;
+    return b;
+}
+
+int main() {
+    int a = 010100100010;
+    printf("%d\n", bitcount(a));
+}
