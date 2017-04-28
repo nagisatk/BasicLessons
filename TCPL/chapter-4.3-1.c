@@ -98,7 +98,7 @@ int getch(void) {
 
 void ungetch(int c) {
     if(bufp >= BUFSIZE)
-        printf("ungetchL too many charactors.\n");
+        printf("ungetch: too many charactors.\n");
     else
         buf[bufp++] = c;
 }
