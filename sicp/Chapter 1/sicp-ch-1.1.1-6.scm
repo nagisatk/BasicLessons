@@ -46,7 +46,7 @@ circumference
 ; Chapter 1.1.4 Compound Procedures
 
 (define (square x)
-        (* x x))
+  (* x x))
 
 (square 21)
 
@@ -55,12 +55,12 @@ circumference
 (square (square 3))
 
 (define (sum-of-square x y)
-        (+ (square x) (square y)))
+  (+ (square x) (square y)))
 
 (sum-of-square 3 4)
 
 (define (f a)
-        (sum-of-square (+ a 1) (* a 2)))
+  (sum-of-square (+ a 1) (* a 2)))
 
 (f 5)
 
@@ -75,15 +75,15 @@ circumference
 ;         (cond   ((< x 0) (- x))
 ;                 (else x)))
 (define (abs x)
-        (if    (< x 0)
-                (- x)
-                x))
+  (if (< x 0)
+    (- x)
+    x))
 (abs -1)
 
 (define (>= x y)
-        (or (> x y) (= x y)))
+  (or (> x y) (= x y)))
 (>= 10 9)
 
 (define (<= x y)
-        (not (> x y)))
+  (not (> x y)))
 (<= 10 9)
