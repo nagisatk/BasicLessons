@@ -51,4 +51,7 @@
 (f 1 0) ; 2
 (define (f g)
   (g 2))
+
+
+; Exercise 1.34
 ; (f f)   ; duplicate definition for identifier
