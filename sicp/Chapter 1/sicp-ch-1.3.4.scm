@@ -32,4 +32,35 @@
                 1.0))
 (cube-root 27)
 
-; Newton Method
+; Newton Methods
+; derive
+
+(define (deriv g)
+  (lambda (x) 
+    (/  (- (g (+ x dx)) (g x))
+        dx)))
+(define dx 0.00001)
+
+(define (cube x)
+  (* x x x))
+((deriv cube) 5)
+
+(define (newton-transform g)
+  (lambda (x) (- x (/ (g x) ((deriv g) x)))))
+(define (newton-method g guess)
+  (fixed-point (newton-transform g) guess))
+
+(define (sqrt x)
+  (newton-method  (lambda (y) (- (square y) x))
+                  1.0))
+(sqrt 2)
+
+; 抽象和第一级过程
+(define (fixed-point-of-transform g transform guess)
+  (fixed-point (transform g) guess))
+
+(define (sqrt2 x)
+  (fixed-point-of-transform (lambda (y) (- (- (square y) x)))
+                            newton-transform
+                            1.0))
+(sqrt2 2)
