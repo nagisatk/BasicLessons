@@ -44,11 +44,30 @@ end
 -- Exercise 4.5: Write a function to remove a slice from a string; the slice should be given by its initial
 -- position and its length:
 -- > remove("hello world", 7, 4) --> hello d
+function remove_slice( s, i, l )
+    return string.sub( s, 1, i - 1 ) .. string.sub( s, i + l, -1 )
+end
+
+print(remove_slice("hello world", 7, 4))
 -- Exercise 4.6: Redo the previous exercise for UTF-8 strings:
 -- > remove("ação", 2, 2) --> ao
 -- (Here, both the initial position and the length should be counted in codepoints.)
+
+function remove_slice( s, i, l )
+    return string.sub( s, 1, utf8.offset(s, i - 1) ) .. string.sub( s, utf8.offset(s, i + l), -1 )
+end
+
 -- Exercise 4.7: Write a function to check whether a given string is a palindrome:
 -- > ispali("step on no pets") --> true
 -- > ispali("banana") --> false
+function ispali( s )
+    return string.reverse( s ) == s
+end
+
+print(ispali("step on no pets"))
+print(ispali("banana"))
 -- Exercise 4.8: Redo the previous exercise so that it ignores differences in spaces and punctuation.
+
+-- how to confirm that a char is a punctuation?
+
 -- Exercise 4.9: Redo the previous exercise for UTF-8 strings.
