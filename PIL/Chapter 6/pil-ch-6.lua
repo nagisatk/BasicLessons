@@ -92,3 +92,21 @@ print(add(1, 2, 3, 4, 5, 6))     -- 21
 
 print(table.unpack({nil, nil, nil}))    -- nothing
 print(table.unpack({2, nil, 1}))        -- 2 nil 1
+
+function unpack( t, i, n )
+    i = i or 1
+    n = n or #t
+    if i <= n then
+        return t[i] , unpack(t, i + 1, n)
+    end
+end
+
+t = { 1, 2, 3, nil, nil, 4 }
+
+print(unpack(t, 1, #t))
+
+-- tail call
+
+function f( x )
+    g(x)    -- this is not a tail call for f still has to discard any results from g before returning
+end
