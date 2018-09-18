@@ -2,3 +2,6 @@
 .gitignore
 *.exe
 node_modules
+*.map
+package-lock.json
+sicp-*.js
