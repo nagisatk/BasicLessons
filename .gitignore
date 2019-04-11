@@ -5,3 +5,5 @@ node_modules
 *.map
 package-lock.json
 sicp-*.js
+target
+*.pdb
