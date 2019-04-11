@@ -45,6 +45,7 @@
         (op (car sequence)
             (accumulate op initial (cdr sequence)))))
 
+(display "test accumulate.\n")
 (accumulate + 0 (list 1 2 3 4 5))   ; 15
 (accumulate * 1 (list 1 2 3 4 5))   ; 120
 (accumulate cons '() (list 1 2 3 4 5))
@@ -77,6 +78,32 @@
                 (filter even?
                         (map fib (enumerate-interval 0 n)))))
 (even-fib 14)
+;; exercise 2.33
+; (define (map p sequence)
+;     (accumulate (lambda (x y) <??>)
+;         nil
+;         sequence))
+(define (map-n p sequence)
+    (accumulate (lambda (x y) (cons (p x) y))
+                '()
+                sequence))
+(map-n square (list 1 2 3 4)) ; (1 4 9 16)
+
+; (define (append seq1 seq2)
+;     (accumulate cons <??> <??>))
+
+(define (append-n seq1 seq2)
+    (accumulate cons seq2 seq1))
+(append-n (list 1 2 3) (list 4 5 6)) ; (1 2 3 4 5 6)
+
+; (define (length sequence)
+;     (accumulate <??> 0 sequence))
+
+(define (length-n sequence)
+    (accumulate (lambda (x y) (+ 1 y)) 0 sequence))
+
+(display "exercise 2.33: the result should be 6\n")
+(length-n (list 1 2 3 4 5 6))   ; 6
 
 ; exercise 2.34
 
@@ -85,6 +112,7 @@
                     (+ this-coeff (* x higher-terms)))
                 0
                 coefficient-sequence))
+(display "exercise 2.34: the result should be 77\n")
 (horner-eval 2 (list 1 3 0 5 0 1))
 
 ; exercise 2.35
@@ -206,3 +234,5 @@
 )
 
 (queens 4)
+
+
