@@ -19,6 +19,14 @@ export function cdr(set: Function) {
     })
 }
 
+export function cadr(set: Function) {
+    return car(cdr(set))
+}
+
+export function caddr(set: Function) {
+    return car(cdr(cdr(set)))
+}
+
 export function isnull(e: any) {
     return e === null
 }
